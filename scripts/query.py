@@ -19,7 +19,16 @@ def ask_llm(context: str, question: str) -> str:
     if gemini_key and gemini_key != "your_gemini_api_key_here":
         import google.generativeai as genai
         genai.configure(api_key=gemini_key)
-        return genai.GenerativeModel('gemini-1.5-flash').generate_content(prompt).text.strip()
+        
+        # Support configurable Gemini Flash model (default: gemini-2.0-flash or gemini-1.5-flash)
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+        try:
+            model = genai.GenerativeModel(model_name)
+            return model.generate_content(prompt).text.strip()
+        except Exception:
+            # Fallback to gemini-1.5-flash if 2.0 endpoint is not available on the key
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            return model.generate_content(prompt).text.strip()
     
     return f"[LLM Simulation Response based on context]:\n" + "\n".join([f"- {line}" for line in context.split("\n") if line.strip()])
 
