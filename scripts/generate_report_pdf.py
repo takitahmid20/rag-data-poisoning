@@ -122,7 +122,7 @@ def create_diagram_3():
     
     x = 5
     for i, (text, bg, border, font_c, w) in enumerate(steps):
-        d.add(Rect(x, 6, w, 24, rx=3, ry=3, fillColor=bg_color, strokeColor=border_color, strokeWidth=1) if False else Rect(x, 6, w, 24, rx=3, ry=3, fillColor=colors.HexColor(bg), strokeColor=colors.HexColor(border), strokeWidth=1))
+        d.add(Rect(x, 6, w, 24, rx=3, ry=3, fillColor=colors.HexColor(bg), strokeColor=colors.HexColor(border), strokeWidth=1))
         d.add(String(x + w/2, 14, text, fontName="Helvetica-Bold", fontSize=6.5, textAnchor="middle", fillColor=colors.HexColor(font_c)))
         
         arrow_x = x + w
