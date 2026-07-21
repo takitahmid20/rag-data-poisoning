@@ -37,7 +37,7 @@ class NumberedCanvas(canvas.Canvas):
 
         # Running Header (Page 2+)
         if self._pageNumber > 1:
-            self.drawString(45, 755, "United International University — CSE 4531 (Sec C) | Group 06 Report")
+            self.drawString(45, 755, "United International University - CSE 4531 (Sec C) | Group 06 Report")
             self.setStrokeColor(colors.HexColor("#CBD5E0"))
             self.setLineWidth(0.5)
             self.line(45, 748, 567, 748)
@@ -47,7 +47,7 @@ class NumberedCanvas(canvas.Canvas):
         self.setLineWidth(0.5)
         self.line(45, 38, 567, 38)
         
-        self.drawString(45, 25, "Summer 2026 | CSE 4531 (Section C) — Group 06")
+        self.drawString(45, 25, "Summer 2026 | CSE 4531 (Section C) - Group 06")
         page_text = f"Page {self._pageNumber} of {page_count}"
         self.drawRightString(567, 25, page_text)
         self.restoreState()
@@ -274,7 +274,7 @@ def build_pdf():
         ],
         [
             Paragraph("Team Members:", style_meta_label),
-            Paragraph("011222245 — Jakaria Molla &nbsp;&nbsp;|&nbsp;&nbsp; 011222177 — Easmin Akter Tule<br/>011222172 — Taki Tahmid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 011222285 — Pranto Shahriar Bishal", style_meta_val),
+            Paragraph("011222245 - Jakaria Molla &nbsp;&nbsp;|&nbsp;&nbsp; 011222177 - Easmin Akter Tule<br/>011222172 - Taki Tahmid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; 011222285 - Pranto Shahriar Bishal", style_meta_val),
             Paragraph("", style_meta_label),
             Paragraph("", style_meta_val)
         ]
@@ -285,7 +285,7 @@ def build_pdf():
         ('BACKGROUND', (0, 0), (-1, -1), BG_LIGHT),
         ('BOX', (0, 0), (-1, -1), 0.5, colors.HexColor("#E2E8F0")),
         ('INNERGRID', (0, 0), (-1, -1), 0.5, colors.HexColor("#EDF2F7")),
-        ('SPAN', (1, 2), (3, 2)), # Span all team members across the last row
+        ('SPAN', (1, 2), (3, 2)),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
         ('TOPPADDING', (0, 0), (-1, -1), 3),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
@@ -342,11 +342,11 @@ def build_pdf():
     # 4. Workflows & Visualizations
     story.append(Paragraph("4. Architectural Workflow Diagrams", style_h1))
     
-    story.append(Paragraph("<b>Figure 1:</b> Baseline RAG Workflow (Phase 1 — Trusted Corpus)", style_h2))
+    story.append(Paragraph("<b>Figure 1:</b> Baseline RAG Workflow (Phase 1: Trusted Corpus)", style_h2))
     story.append(create_diagram_1())
     story.append(Paragraph("Figure 1: Standard retrieval pipeline producing verified responses.", style_caption))
 
-    story.append(Paragraph("<b>Figure 2:</b> Mixed Knowledge Base Workflow (Phase 2 — Inconsistent Document Ingestion)", style_h2))
+    story.append(Paragraph("<b>Figure 2:</b> Mixed Knowledge Base Workflow (Phase 2: Inconsistent Document Ingestion)", style_h2))
     story.append(create_diagram_2())
     story.append(Paragraph("Figure 2: Vector context window contamination resulting from unfiltered similarity search.", style_caption))
 
@@ -420,7 +420,7 @@ def build_pdf():
     story.append(Spacer(1, 2))
     story.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#CBD5E0"), spaceBefore=2, spaceAfter=4))
     story.append(Paragraph(
-        "<b>Appendix: Source Code Repository</b> — All experimental code and log data are available at: "
+        "<b>Appendix: Source Code Repository</b>: All experimental code and log data are available at: "
         '<font color="#2B6CB0"><u><a href="https://github.com/takitahmid20/rag-data-poisoning">https://github.com/takitahmid20/rag-data-poisoning</a></u></font>',
         style_body
     ))

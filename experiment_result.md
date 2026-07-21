@@ -1,6 +1,6 @@
 # Experimental Evaluation Report: Data Poisoning & Inconsistency in RAG Systems
 
-**Course:** BSc Computer Security (CSE 4531) — Preliminary Milestone  
+**Course:** BSc Computer Security (CSE 4531) - Preliminary Milestone  
 **Submission Date:** 21 July 2026  
 **Evaluation Scope:** Defensive evaluation of Retrieval-Augmented Generation (RAG) security under knowledge base document inconsistency.
 

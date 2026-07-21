@@ -1,6 +1,6 @@
 # Research Gap Analysis: Security & Data Poisoning in RAG Systems
 
-**Course:** BSc Computer Security (CSE 4531) — Preliminary Literature Evaluation  
+**Course:** BSc Computer Security (CSE 4531) - Preliminary Literature Evaluation  
 **Submission Date:** 21 July 2026  
 **Focus Area:** Defensive Evaluation of Document Inconsistency, Poisoning, and Trust in Retrieval-Augmented Generation
 
