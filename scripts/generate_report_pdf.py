@@ -122,7 +122,7 @@ def create_diagram_3():
     
     x = 5
     for i, (text, bg, border, font_c, w) in enumerate(steps):
-        d.add(Rect(x, 6, w, 24, rx=3, ry=3, fillColor=colors.HexColor(bg), strokeColor=colors.HexColor(border), strokeWidth=1))
+        d.add(Rect(x, 6, w, 24, rx=3, ry=3, fillColor=bg_color, strokeColor=border_color, strokeWidth=1) if False else Rect(x, 6, w, 24, rx=3, ry=3, fillColor=colors.HexColor(bg), strokeColor=colors.HexColor(border), strokeWidth=1))
         d.add(String(x + w/2, 14, text, fontName="Helvetica-Bold", fontSize=6.5, textAnchor="middle", fillColor=colors.HexColor(font_c)))
         
         arrow_x = x + w
@@ -143,8 +143,8 @@ def build_pdf():
         pagesize=letter,
         leftMargin=45,
         rightMargin=45,
-        topMargin=42,
-        bottomMargin=42
+        topMargin=40,
+        bottomMargin=40
     )
 
     styles = getSampleStyleSheet()
@@ -168,20 +168,20 @@ def build_pdf():
         'DocSubTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
-        fontSize=10.5,
-        leading=13.5,
+        fontSize=10,
+        leading=13,
         textColor=SECONDARY,
-        spaceAfter=6
+        spaceAfter=5
     )
 
     style_h1 = ParagraphStyle(
         'Header1',
         parent=styles['Heading2'],
         fontName='Helvetica-Bold',
-        fontSize=11,
-        leading=13.5,
+        fontSize=10.5,
+        leading=13,
         textColor=PRIMARY,
-        spaceBefore=7,
+        spaceBefore=6,
         spaceAfter=3,
         keepWithNext=True
     )
@@ -190,10 +190,10 @@ def build_pdf():
         'Header2',
         parent=styles['Heading3'],
         fontName='Helvetica-Bold',
-        fontSize=9,
-        leading=11.5,
+        fontSize=8.5,
+        leading=11,
         textColor=SECONDARY,
-        spaceBefore=4,
+        spaceBefore=3,
         spaceAfter=2,
         keepWithNext=True
     )
@@ -202,10 +202,10 @@ def build_pdf():
         'BodyTextCustom',
         parent=styles['Normal'],
         fontName='Helvetica',
-        fontSize=8.5,
-        leading=11,
+        fontSize=8,
+        leading=10.5,
         textColor=NEUTRAL_DARK,
-        spaceAfter=3.5
+        spaceAfter=3
     )
 
     style_meta_label = ParagraphStyle(
@@ -213,7 +213,7 @@ def build_pdf():
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
         fontSize=8,
-        leading=10.5,
+        leading=10,
         textColor=PRIMARY
     )
 
@@ -222,7 +222,7 @@ def build_pdf():
         parent=styles['Normal'],
         fontName='Helvetica',
         fontSize=8,
-        leading=10.5,
+        leading=10,
         textColor=NEUTRAL_DARK
     )
 
@@ -249,11 +249,11 @@ def build_pdf():
         parent=styles['Normal'],
         fontName='Helvetica-Oblique',
         fontSize=7,
-        leading=8.5,
+        leading=8,
         alignment=1,
         textColor=colors.HexColor("#718096"),
         spaceBefore=1,
-        spaceAfter=4
+        spaceAfter=3
     )
 
     story = []
@@ -261,7 +261,7 @@ def build_pdf():
     # Title & Header
     story.append(Paragraph("Preliminary Experiment Results", style_title))
     story.append(Paragraph("Data Poisoning and Prompt Injection Attacks on Retrieval-Augmented Generation (RAG) Systems", style_subtitle))
-    story.append(HRFlowable(width="100%", thickness=1.2, color=PRIMARY, spaceBefore=0, spaceAfter=5))
+    story.append(HRFlowable(width="100%", thickness=1.2, color=PRIMARY, spaceBefore=0, spaceAfter=4))
 
     meta_data = [
         [
@@ -287,13 +287,13 @@ def build_pdf():
         ('INNERGRID', (0, 0), (-1, -1), 0.5, colors.HexColor("#EDF2F7")),
         ('SPAN', (1, 2), (3, 2)),
         ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-        ('TOPPADDING', (0, 0), (-1, -1), 3),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('TOPPADDING', (0, 0), (-1, -1), 2.5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5),
         ('LEFTPADDING', (0, 0), (-1, -1), 5),
         ('RIGHTPADDING', (0, 0), (-1, -1), 5),
     ]))
     story.append(meta_table)
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 2))
 
     # 1. Purpose & Scope
     story.append(Paragraph("1. Purpose & Scope", style_h1))
@@ -326,7 +326,7 @@ def build_pdf():
         ('RIGHTPADDING', (0, 0), (-1, -1), 5),
     ]))
     story.append(tech_table)
-    story.append(Spacer(1, 3))
+    story.append(Spacer(1, 2))
 
     # 3. Experiment Design
     story.append(Paragraph("3. Experiment Design", style_h1))
@@ -380,8 +380,8 @@ def build_pdf():
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E0")),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('TOPPADDING', (0, 0), (-1, -1), 3),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('TOPPADDING', (0, 0), (-1, -1), 2.5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5),
         ('LEFTPADDING', (0, 0), (-1, -1), 5),
         ('RIGHTPADDING', (0, 0), (-1, -1), 5),
     ]))
@@ -397,11 +397,11 @@ def build_pdf():
     # 6. Discussion & Research Gap
     story.append(Paragraph("6. Discussion & Research Gap", style_h1))
     story.append(Paragraph(
-        "<b>Discussion:</b> The retrieval stage is the first point where knowledge quality directly affects the generated response. Although Gemini attempted to generate reasonable answers, the presence of inconsistent documents demonstrates that document trustworthiness is a crucial security concern for RAG architectures.",
+        "<b>Discussion:</b> The retrieval stage is the first point where knowledge quality directly affects the generated response. Recent studies such as PoisonedRAG and CorruptRAG demonstrate that malicious documents can successfully manipulate RAG outputs. Existing defenses mainly rely on document validation, keyword matching, metadata verification, and trust-based retrieval filtering. While these reduce direct attack success, key challenges remain unresolved.",
         style_body
     ))
     story.append(Paragraph(
-        "<b>Research Gap:</b> Current RAG systems generally assume indexed documents are trustworthy, and existing research mainly focuses on prompt filtering after retrieval. However, there is limited emphasis on validating documents before indexing. This project therefore proposes developing a lightweight document trust evaluation and sanitization framework capable of identifying suspicious documents before they become searchable inside the vector database.",
+        "<b>Research Gap:</b> First, most systems focus on explicit prompt injection and struggle to identify obfuscated instructions (e.g., sentence initials, Unicode characters, invisible text, indirect language). Second, current defenses primarily evaluate English documents, with limited work in multilingual environments, especially low-resource languages like Bangla. Third, many defenses require expensive LLM-based verification for every retrieved document, increasing latency and cost. Therefore, this project proposes to investigate a lightweight document sanitization framework capable of detecting malicious documents before indexing into the vector database while supporting multilingual content.",
         style_body
     ))
 
@@ -417,8 +417,8 @@ def build_pdf():
     ))
 
     # Appendix
-    story.append(Spacer(1, 2))
-    story.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#CBD5E0"), spaceBefore=2, spaceAfter=4))
+    story.append(Spacer(1, 1))
+    story.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor("#CBD5E0"), spaceBefore=1, spaceAfter=3))
     story.append(Paragraph(
         "<b>Appendix: Source Code Repository</b>: All experimental code and log data are available at: "
         '<font color="#2B6CB0"><u><a href="https://github.com/takitahmid20/rag-data-poisoning">https://github.com/takitahmid20/rag-data-poisoning</a></u></font>',

@@ -8,47 +8,37 @@
 
 ## 1. Literature Review & Current State of Research
 
-Recent literature (2023–2026) highlights that Retrieval-Augmented Generation (RAG) architectures significantly expand the attack surface of Large Language Models (LLMs):
-
-- **PoisonedRAG (Zou et al., 2024):** Demonstrates that injecting a tiny fraction of adversarial text chunks into a knowledge base can deterministically manipulate LLM outputs across targeted queries without modifying model weights.
-- **CorruptRAG & Knowledge Poisoning (2024–2025):** Explores how document conflicts, outdated policies, and indirect prompt injections degrade retrieval quality, leading to hallucination, credential theft, and unauthorized command execution.
-- **Indirect Prompt Injection (Greshake et al., 2023; Liu et al., 2025):** Documents how adversarial instructions embedded within retrieved context hijack LLM control flow.
-
----
-
-## 2. Existing Defensive Approaches & Limitations
+Recent studies such as **PoisonedRAG** (Zou et al., 2024) and **CorruptRAG** (2024-2025) demonstrate that malicious or inconsistent documents can successfully manipulate RAG outputs. Existing defenses mainly rely on document validation, keyword matching, metadata verification, and trust-based retrieval filtering. While these approaches reduce the success rate of direct attacks, several important challenges remain unresolved:
 
 | Defense Category | Mechanism & Technique | Current Limitations |
 | :--- | :--- | :--- |
-| **Document Provenance** | Cryptographic hashing, digital signatures, and ACLs on source documents. | Hard to maintain across dynamic enterprise data lakes. |
-| **Metadata Validation** | Filtering chunks by version tags or timestamp attributes during query. | Vulnerable to metadata spoofing or ingestion pipeline bypass. |
-| **Trust Scoring** | Assigning numerical trust coefficients to document repositories prior to ranking. | Static scores fail to catch subtle semantic contradictions in mixed files. |
-| **Retrieval Filtering** | Top-K similarity thresholds and anomaly detection on vector distributions. | High false-positive rate; fails when untrusted chunks match query closely. |
-| **Content Sanitization** | Heuristic regex matching for prompt injection tokens (e.g. `Ignore instructions`). | Easily bypassed by paraphrasing and encoding variations. |
-| **Semantic Validation** | Using secondary LLMs or cross-encoders to verify context consistency. | High latency ($>1.5\text{s}$) and computational cost. |
+| **Document Validation & Provenance** | Cryptographic hashing, digital signatures, and ACLs on source documents. | Hard to maintain across dynamic enterprise data lakes and unsigned uploads. |
+| **Metadata Verification** | Filtering chunks by version tags or timestamp attributes during query. | Vulnerable to metadata spoofing or misconfigured ingestion pipelines. |
+| **Trust-Based Filtering** | Assigning numerical trust coefficients to document repositories prior to ranking. | Static scores fail to detect fine-grained semantic contradictions within mixed files. |
+| **Keyword Matching & Sanitization** | Heuristic regex matching for prompt injection tokens (e.g., `Ignore instructions`). | Easily bypassed by paraphrasing, synonym substitution, and encoding tricks. |
+| **LLM Semantic Validation** | Using secondary LLMs or cross-encoders to verify context consistency. | High computational cost and latency ($>1.5\text{s}$), impractical for real-time systems. |
 
 ---
 
-## 3. Remaining Open Research Challenges
+## 2. Remaining Open Research Challenges
 
-1. **Multilingual RAG Defenses:** Existing filters target English; translated or code-switched adversarial text bypasses rule-based checks.
-2. **Obfuscated Manipulation:** Paraphrased or zero-width text evasions preserve high vector similarity while avoiding heuristic blocks.
-3. **Dynamic Unsigned Sources:** Enterprise workflows ingest unsigned web scrapes, PDF conversions, and user uploads where cryptographically verified provenance is unavailable.
-4. **Computational Efficiency:** Heavy runtime validation adds impractically high latency to interactive QA systems.
+1. **Obfuscated Instructions vs. Explicit Injections:** Most existing systems focus on explicit prompt injection, where malicious instructions are written clearly in the document. They often struggle to identify obfuscated instructions, such as hidden prompts encoded through sentence initials, Unicode characters, invisible text, or indirect language.
+2. **Multilingual & Low-Resource Environments:** Current defenses primarily evaluate English documents. Very limited work investigates multilingual environments, especially low-resource languages like Bangla.
+3. **High Latency of Pre/Post-Query Verification:** Many proposed defenses require expensive LLM-based verification for every retrieved document, significantly increasing latency and deployment cost in interactive QA systems.
 
 ---
 
-## 4. Proposed Future Direction
+## 3. Proposed Research Direction
 
-To bridge the gap between fragile heuristic filtering and high-latency LLM verification, this preliminary evaluation points toward:
+To address these limitations, this project proposes to investigate:
 
-> **"A lightweight document trust evaluation and sanitization layer before vector database indexing."**
+> **"A lightweight document trust evaluation and sanitization framework capable of detecting malicious documents before indexing them into the vector database while supporting multilingual content."**
 
 ### Pre-Indexing Defense Concept:
 ```
 [ Untrusted Document Corpus ] ──► [ Pre-Indexing Sanitization Layer ] ──► [ Chroma Vector DB ] ──► [ LLM ]
-                                  • Structural & Version Verification
-                                  • Conflict & Deprecation Filtering
-                                  • Provenance Tagging
+  • Multilingual (Bangla/English)   • Obfuscation & Keyword Detection
+  • Pre-Indexing Validation         • Low-Latency Risk Scoring
 ```
-Operating **pre-indexing** ensures untrusted or outdated chunks are flagged or filtered before entering the persistent vector database, protecting RAG retrieval without adding runtime query latency.
+
+Operating **pre-indexing** ensures malicious or inconsistent chunks are detected and quarantined before entering the persistent vector database, protecting RAG retrieval efficiency without adding heavy runtime query latency.
