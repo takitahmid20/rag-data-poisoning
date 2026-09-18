@@ -12,6 +12,15 @@ This repository contains a concise, reproducible Retrieval-Augmented Generation 
 
 Through empirical evaluation, this project demonstrates that vector search engines retrieve content based strictly on semantic similarity without evaluating document authority or provenance. This vulnerability allows untrusted directives to pollute the LLM context window.
 
+## Presentation
+
+- `RAG-Security-ANIMATED.html` — updated presentation covering objectives, methodology, experimental evidence, limitations, planned improvements, and source code.
+- `RAG-Security-Deck.pdf` — exported presentation deck.
+
+## Threat Model Boundary
+
+The current experiment uses one outdated or inconsistent policy document as a retrieval-contamination proxy. It demonstrates that similarity-based retrieval can promote an untrusted document into the Top-K context, but it is not yet a full adversarial PoisonedRAG-style passage-generation benchmark. Future work should evaluate crafted poisoning passages and indirect prompt-injection content separately, with explicit attack-success and false-positive metrics.
+
 ---
 
 ## 📁 Repository Structure
