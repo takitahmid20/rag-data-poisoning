@@ -11,4 +11,4 @@ load_dotenv(BASE_DIR / ".env")
 
 def embedding_model_name() -> str:
     """Return the configured SentenceTransformers model."""
-    return os.getenv("RAG_EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+    return os.getenv("RAG_EMBEDDING_MODEL", "BAAI/bge-m3")

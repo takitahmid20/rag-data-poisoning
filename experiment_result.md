@@ -15,7 +15,7 @@ The objective of this preliminary experiment is to empirically evaluate how a st
 ## 2. Experimental Setup
 
 - **Language & Runtime:** Python 3.11+
-- **Embedding Model:** `SentenceTransformers` (`all-MiniLM-L6-v2`, 384-dimensional dense vectors)
+- **Embedding Model:** `SentenceTransformers` (`BAAI/bge-m3`, 1024-dimensional multilingual dense vectors)
 - **Vector Database:** ChromaDB (persistent collection `policy_docs`)
 - **Document Chunking:** `RecursiveCharacterTextSplitter` (chunk_size=300, chunk_overlap=30)
 - **Retrieval Metric:** Cosine similarity distance ($k=3$)
@@ -80,6 +80,7 @@ The objective of this preliminary experiment is to empirically evaluate how a st
 
 1. **Controlled Laboratory Setting:** 6 synthetic PDF documents evaluating specific policy compliance scenarios.
 2. **Dense-Only Retrieval:** Evaluation uses standard dense vector search ($k=3$) without hybrid BM25 keyword filtering or cross-encoder re-ranking.
+3. **Embedding transition:** The current implementation and defense evaluation use `BAAI/bge-m3`; earlier MiniLM-only artifacts are historical and should not be used as the final model configuration.
 
 ## 6. Implemented Pre-Index Defense Evaluation
 
@@ -95,7 +96,7 @@ same two questions and `k=3`.
 | Pre-index gate | 5 | 0 of 2 | 0% |
 
 Observed absolute reduction: **100 percentage points** on this preliminary
-two-question benchmark. The result demonstrates gate behavior on the current
+two-question benchmark using `BAAI/bge-m3`. The result demonstrates gate behavior on the current
 synthetic corpus; it is not a claim of universal attack prevention. A larger
 benchmark with adversarially crafted passages, multilingual inputs, false
 positives, and repeated trials is still required.

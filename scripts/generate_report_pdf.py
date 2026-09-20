@@ -310,7 +310,7 @@ def build_pdf():
     tech_data = [
         [Paragraph("Component", style_table_header), Paragraph("Specification", style_table_header), Paragraph("Component", style_table_header), Paragraph("Specification", style_table_header)],
         [Paragraph("Programming Language", style_table_cell), Paragraph("Python 3.11+", style_table_cell), Paragraph("Vector Database", style_table_cell), Paragraph("ChromaDB", style_table_cell)],
-        [Paragraph("Orchestration Framework", style_table_cell), Paragraph("LangChain", style_table_cell), Paragraph("Embedding Model", style_table_cell), Paragraph("Sentence Transformers (MiniLM-L6-v2)", style_table_cell)],
+        [Paragraph("Orchestration Framework", style_table_cell), Paragraph("LangChain", style_table_cell), Paragraph("Embedding Model", style_table_cell), Paragraph("Sentence Transformers (BAAI/bge-m3)", style_table_cell)],
         [Paragraph("Language Model (LLM)", style_table_cell), Paragraph("Google Gemini API (1.5 Flash)", style_table_cell), Paragraph("Document Loader", style_table_cell), Paragraph("PyPDF Loader", style_table_cell)],
         [Paragraph("Trusted Policy Corpus", style_table_cell), Paragraph("5 PDF Documents", style_table_cell), Paragraph("Inconsistent Document", style_table_cell), Paragraph("1 Outdated PDF Manual", style_table_cell)]
     ]
@@ -412,7 +412,7 @@ def build_pdf():
     story.append(Paragraph("Figure 3: Defensive pipeline validating document metadata, trust, and consistency prior to vector storage.", style_caption))
 
     story.append(Paragraph(
-        "<b>Conclusion:</b> This preliminary experiment successfully demonstrated that introducing inconsistent documents changes retrieval behavior and may influence the context supplied to Gemini. Although a complete defense mechanism has not yet been implemented, the experiment provides a solid foundation for the next stages of our research.",
+        "<b>Conclusion:</b> Using BAAI/bge-m3, the mixed corpus contaminated Top-3 retrieval for both test questions, while the implemented pre-index gate quarantined the untrusted document and reduced observed contamination to zero on this preliminary two-question benchmark. Larger adversarial and multilingual evaluations remain necessary.",
         style_body
     ))
 

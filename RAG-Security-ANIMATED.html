@@ -356,7 +356,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
     <h1 class="title rise">Securing RAG<br>Against Poisoning<br>&amp; Prompt Injection</h1>
     <div class="title-sub rise2">Pre-Indexing Document Trust &amp; Sanitization Framework</div>
     <div class="metae rise3"><span><b>Group 06</b> · United International University</span><span><b>Instructor:</b> Mr. Azizur Rahman Anik</span></div>
-    <div class="chips rise3"><span class="chip t">LangChain</span><span class="chip t">ChromaDB</span><span class="chip">MiniLM-L6-v2</span><span class="chip">Gemini 1.5 Flash</span></div>
+    <div class="chips rise3"><span class="chip t">LangChain</span><span class="chip t">ChromaDB</span><span class="chip">BGE-M3</span><span class="chip">Gemini 1.5 Flash</span></div>
   </div>
 </section>
 
@@ -386,7 +386,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="conn" style="left:520px;width:100px"><div class="spark" style="animation-delay:.45s"></div></div>
       <div class="conn" style="left:830px;width:100px"><div class="spark" style="animation-delay:.9s"></div></div>
       <!-- nodes -->
-      <div class="pnode" style="left:40px"><div class="sn">STAGE 01</div><div class="st">Ingest + Embed</div><div class="sd">MiniLM-L6-v2</div></div>
+      <div class="pnode" style="left:40px"><div class="sn">STAGE 01</div><div class="st">Ingest + Embed</div><div class="sd">BAAI/bge-m3 · 1024-d</div></div>
       <div class="pnode" style="left:310px"><div class="sn">STAGE 02</div><div class="st">Vector Store</div><div class="sd">ChromaDB</div></div>
       <div class="pnode" style="left:620px"><div class="sn">STAGE 03</div><div class="st">Retrieve Top-K</div><div class="sd">cosine / L2</div></div>
       <div class="pnode dark" style="left:930px"><div class="sn">STAGE 04</div><div class="st">Synthesize</div><div class="sd">Gemini 1.5</div></div>
@@ -577,7 +577,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
     <h2 class="head">Seven Things to Be Ready For</h2>
     <div class="stage"><div class="checkgrid">
       <div class="checkitem rise"><div class="ck">01</div><div><div class="ct">Objectives</div><div class="cd">Model, defend, isolate, and evaluate RAG poisoning.</div></div></div>
-      <div class="checkitem rise"><div class="ck">02</div><div><div class="ct">Methodology</div><div class="cd">PyPDF → MiniLM embeddings → ChromaDB → Top-K retrieval → Gemini.</div></div></div>
+      <div class="checkitem rise"><div class="ck">02</div><div><div class="ct">Methodology</div><div class="cd">PyPDF → BGE-M3 embeddings → ChromaDB → Top-K retrieval → Gemini.</div></div></div>
       <div class="checkitem rise2"><div class="ck">03</div><div><div class="ct">Experimental core</div><div class="cd">Five trusted documents + one poison; two queries; k=3; cosine/L2 ranking.</div></div></div>
       <div class="checkitem rise2"><div class="ck">04</div><div><div class="ct">Results</div><div class="cd">The poison entered Top-3 for both queries: rank 2 and rank 3.</div></div></div>
       <div class="checkitem rise3"><div class="ck">05</div><div><div class="ct">Limitations</div><div class="cd">Two-query synthetic benchmark; defense result is preliminary and not universal.</div></div></div>

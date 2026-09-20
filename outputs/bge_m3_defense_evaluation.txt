@@ -1,0 +1,8 @@
+Embedding model: BAAI/bge-m3
+Questions: 2
+Top-k: 3
+Mixed corpus contamination: 100.00% (2/2 questions)
+Pre-index defended contamination: 0.00% (0/2 questions)
+Absolute reduction: 100.00 percentage points
+Quarantine: outdated_vpn_policy.pdf
+Note: This is a preliminary result on the six-document synthetic corpus.
