@@ -8,6 +8,8 @@ warnings.filterwarnings("ignore")
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_chroma import Chroma
 
+from embedding_config import embedding_model_name
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 CHROMA_DIR = BASE_DIR / "vectorstore"
@@ -33,7 +35,7 @@ def ask_llm(context: str, question: str) -> str:
     return f"[LLM Simulation Response based on context]:\n" + "\n".join([f"- {line}" for line in context.split("\n") if line.strip()])
 
 def run_query(question: str, top_k: int = 3, collection_name: str = "trusted_policies"):
-    embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
+    embeddings = SentenceTransformerEmbeddings(model_name=embedding_model_name())
     db = Chroma(persist_directory=str(CHROMA_DIR), embedding_function=embeddings, collection_name=collection_name)
     
     results = db.similarity_search_with_score(question, k=top_k)

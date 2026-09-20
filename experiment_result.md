@@ -80,3 +80,22 @@ The objective of this preliminary experiment is to empirically evaluate how a st
 
 1. **Controlled Laboratory Setting:** 6 synthetic PDF documents evaluating specific policy compliance scenarios.
 2. **Dense-Only Retrieval:** Evaluation uses standard dense vector search ($k=3$) without hybrid BM25 keyword filtering or cross-encoder re-ranking.
+
+## 6. Implemented Pre-Index Defense Evaluation
+
+The repository now includes a lightweight pre-index security gate in
+`scripts/security_gate.py`. It quarantines documents outside the trusted corpus
+and documents containing suspicious directives or unsafe links before they are
+embedded. The comparison was run with `scripts/evaluate_defense.py` using the
+same two questions and `k=3`.
+
+| Configuration | Documents indexed | Contaminated questions | Contamination rate |
+| :--- | ---: | ---: | ---: |
+| Mixed baseline | 6 | 2 of 2 | 100% |
+| Pre-index gate | 5 | 0 of 2 | 0% |
+
+Observed absolute reduction: **100 percentage points** on this preliminary
+two-question benchmark. The result demonstrates gate behavior on the current
+synthetic corpus; it is not a claim of universal attack prevention. A larger
+benchmark with adversarially crafted passages, multilingual inputs, false
+positives, and repeated trials is still required.
