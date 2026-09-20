@@ -87,16 +87,20 @@ The objective of this preliminary experiment is to empirically evaluate how a st
 The repository now includes a lightweight pre-index security gate in
 `scripts/security_gate.py`. It quarantines documents outside the trusted corpus
 and documents containing suspicious directives or unsafe links before they are
-embedded. The comparison was run with `scripts/evaluate_defense.py` using the
-same two questions and `k=3`.
+embedded. The expanded comparison was run with `scripts/evaluate_defense.py`
+using ten categorized questions and `k=3`. The original two-question pilot is
+retained as a historical sanity check; the ten-case suite is the current
+headline evaluation.
 
-| Configuration | Documents indexed | Contaminated questions | Contamination rate |
+| Configuration | Documents indexed | Contaminated cases | Contamination rate |
 | :--- | ---: | ---: | ---: |
-| Mixed baseline | 6 | 2 of 2 | 100% |
-| Pre-index gate | 5 | 0 of 2 | 0% |
+| Mixed baseline | 6 | 4 of 10 | 40% |
+| Pre-index gate | 5 | 0 of 10 | 0% |
 
-Observed absolute reduction: **100 percentage points** on this preliminary
-two-question benchmark using `BAAI/bge-m3`. The result demonstrates gate behavior on the current
+Observed absolute reduction: **40 percentage points** on the expanded
+ten-question benchmark using `BAAI/bge-m3`. The original two-question pilot
+showed 100% contamination; the expanded suite is less saturated and more
+informative. The result demonstrates gate behavior on the current
 synthetic corpus; it is not a claim of universal attack prevention. A larger
 benchmark with adversarially crafted passages, multilingual inputs, false
 positives, and repeated trials is still required.

@@ -1,0 +1,18 @@
+embedding_model=BAAI/bge-m3
+cases=10
+top_k=3
+mixed_contamination_rate=40.00%
+defended_contamination_rate=0.00%
+absolute_reduction=40.00%
+mixed_trusted_topic_hit=100.00%
+defended_trusted_topic_hit=100.00%
+password_reset: mixed=True rank=2 defended=False
+password_sharing: mixed=False rank=None defended=False
+vpn_setup: mixed=True rank=2 defended=False
+vpn_mfa: mixed=True rank=3 defended=False
+mfa_methods: mixed=True rank=2 defended=False
+mfa_sms: mixed=False rank=None defended=False
+leave_days: mixed=False rank=None defended=False
+leave_notice: mixed=False rank=None defended=False
+security_email: mixed=False rank=None defended=False
+security_screen: mixed=False rank=None defended=False

@@ -21,7 +21,7 @@ Through empirical evaluation, this project demonstrates that vector search engin
 
 The current experiment uses one outdated or inconsistent policy document as a retrieval-contamination proxy. It demonstrates that similarity-based retrieval can promote an untrusted document into the Top-K context, but it is not yet a full adversarial PoisonedRAG-style passage-generation benchmark. Future work should evaluate crafted poisoning passages and indirect prompt-injection content separately, with explicit attack-success and false-positive metrics.
 
-The implemented pre-index gate can be tested with `python3 scripts/ingest.py --include-untrusted --defend`. It quarantines non-trusted sources and documents containing suspicious instructions or unsafe links before embedding. Run `python3 scripts/evaluate_defense.py` for mixed-versus-defended Top-K contamination rates. The project now uses `BAAI/bge-m3` as its default multilingual embedding model.
+The implemented pre-index gate can be tested with `python3 scripts/ingest.py --include-untrusted --defend`. It quarantines non-trusted sources and documents containing suspicious instructions or unsafe links before embedding. Run `python3 scripts/evaluate_defense.py` for the ten-case mixed-versus-defended Top-K evaluation. The project now uses `BAAI/bge-m3` as its default multilingual embedding model.
 
 ---
 

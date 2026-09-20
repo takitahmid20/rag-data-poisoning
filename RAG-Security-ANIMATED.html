@@ -444,8 +444,8 @@ body.fs .slide{border-radius:0;box-shadow:none}
         <div class="evnote">▲ Poison ranked #3 — "MFA not required" + unencrypted setup.zip.</div>
       </div>
     </div></div>
-    <div class="cap"><span class="cl">Result</span> <b>1 outdated/inconsistent doc</b> entered Top-3 for <b>both</b> queries. This is a retrieval-contamination proxy; adversarial PoisonedRAG-style passages remain future evaluation.</div>
-    <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>5 trusted + 1 untrusted proxy · k=3</span></div>
+    <div class="cap"><span class="cl">Pilot result</span> The untrusted document entered Top-3 for both original queries. This is a retrieval-contamination proxy; the expanded ten-case benchmark is reported later.</div>
+    <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>pilot: 5 trusted + 1 proxy · k=3</span></div>
   </div>
 </section>
 
@@ -578,13 +578,13 @@ body.fs .slide{border-radius:0;box-shadow:none}
     <div class="stage"><div class="checkgrid">
       <div class="checkitem rise"><div class="ck">01</div><div><div class="ct">Objectives</div><div class="cd">Model, defend, isolate, and evaluate RAG poisoning.</div></div></div>
       <div class="checkitem rise"><div class="ck">02</div><div><div class="ct">Methodology</div><div class="cd">PyPDF → BGE-M3 embeddings → ChromaDB → Top-K retrieval → Gemini.</div></div></div>
-      <div class="checkitem rise2"><div class="ck">03</div><div><div class="ct">Experimental core</div><div class="cd">Five trusted documents + one poison; two queries; k=3; cosine/L2 ranking.</div></div></div>
-      <div class="checkitem rise2"><div class="ck">04</div><div><div class="ct">Results</div><div class="cd">The poison entered Top-3 for both queries: rank 2 and rank 3.</div></div></div>
-      <div class="checkitem rise3"><div class="ck">05</div><div><div class="ct">Limitations</div><div class="cd">Two-query synthetic benchmark; defense result is preliminary and not universal.</div></div></div>
+      <div class="checkitem rise2"><div class="ck">03</div><div><div class="ct">Experimental core</div><div class="cd">Six PDFs, ten categorized questions, BGE-M3, ChromaDB, and k=3 retrieval.</div></div></div>
+      <div class="checkitem rise2"><div class="ck">04</div><div><div class="ct">Results</div><div class="cd">Mixed contamination: 4/10 (40%); defended contamination: 0/10 (0%).</div></div></div>
+      <div class="checkitem rise3"><div class="ck">05</div><div><div class="ct">Limitations</div><div class="cd">Ten synthetic questions; defense result is preliminary and not universal.</div></div></div>
       <div class="checkitem rise3"><div class="ck">06</div><div><div class="ct">Two-week improvements</div><div class="cd">Add trust scoring, quarantine, multilingual/obfuscation tests, latency and false-positive analysis.</div></div></div>
       <div class="checkitem pending rise3"><div class="ck">07</div><div><div class="ct">Source code</div><div class="cd">github.com/takitahmid20/rag-data-poisoning · local copy: rag-data-poisoning/</div></div></div>
     </div></div>
-    <div class="cap"><span class="cl">Speak honestly</span> The current result is a <b>preliminary poisoning demonstration</b>. Present the defense metrics as planned work until the notebook produces them.</div>
+    <div class="cap"><span class="cl">Speak honestly</span> The expanded result is preliminary: <b>40% to 0% contamination</b> on ten synthetic questions. It is not a universal attack-prevention claim.</div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>objectives · method · evidence · next steps</span></div>
   </div>
 </section>
@@ -604,7 +604,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="rf rise3"><div class="rfn">7</div><div><div class="rft"><b>RobustRAG / TrustRAG</b> — robust retrieval and trust-aware defenses</div><div class="rfd">Compare retrieval robustness, trust scoring, and their deployment assumptions</div></div><span class="rtag def">Defense</span></div>
       <div class="rf rise3"><div class="rfn">8</div><div><div class="rft"><b>Provenance &amp; ingestion filtering</b> — defense family</div><div class="rfd">Source authority, metadata, signatures, ACLs, and pre-index validation</div></div><span class="rtag def">Defense</span></div>
     </div></div>
-    <div class="cap"><span class="cl">Reference status</span> Full bibliographic entries and DOI/arXiv links must be verified before final submission; this slide now records the literature families the gap claim must compare.</div>
+    <div class="cap"><span class="cl">Reference status</span> Verified references are in the paper repository; slide-only names still require bibliographic confirmation before archival submission.</div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>attacks · injection · defenses · provenance</span></div>
   </div>
 </section>
