@@ -3,3 +3,11 @@ vectorstore/
 __pycache__/
 *.pyc
 .DS_Store
+vectorstore_*/
+.vscode/
+.env.*
+!.env.example
+*_v1.*
+RAG-Security-Speaker-Notes.pdf
+*.aux
+*.log

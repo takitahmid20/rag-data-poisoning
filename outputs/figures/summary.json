@@ -1,0 +1,117 @@
+{
+  "primary_model": "BGE-M3",
+  "models": {
+    "BGE-M3": {
+      "1_trusted_only": {
+        "trusted_at_rank1": 92.0,
+        "trusted_in_topk": 100.0,
+        "poison_in_topk": 0.0,
+        "poison_at_rank1": 0.0
+      },
+      "2_mixed": {
+        "trusted_at_rank1": 28.0,
+        "trusted_in_topk": 92.0,
+        "poison_in_topk": 100.0,
+        "poison_at_rank1": 72.0
+      },
+      "3_mixed_plus_scanner": {
+        "trusted_at_rank1": 68.0,
+        "trusted_in_topk": 100.0,
+        "poison_in_topk": 68.0,
+        "poison_at_rank1": 28.0
+      },
+      "attack_types": {
+        "injection": {
+          "pairs": 4,
+          "top3": 100.0,
+          "rank1": 75.0
+        },
+        "outdated": {
+          "pairs": 7,
+          "top3": 85.71428571428571,
+          "rank1": 28.571428571428573
+        },
+        "query_mirror": {
+          "pairs": 6,
+          "top3": 83.33333333333333,
+          "rank1": 83.33333333333333
+        },
+        "authority": {
+          "pairs": 6,
+          "top3": 66.66666666666667,
+          "rank1": 16.666666666666668
+        },
+        "contradiction": {
+          "pairs": 7,
+          "top3": 100.0,
+          "rank1": 71.42857142857143
+        }
+      }
+    },
+    "MiniLM-L6-v2": {
+      "1_trusted_only": {
+        "trusted_at_rank1": 92.0,
+        "trusted_in_topk": 100.0,
+        "poison_in_topk": 0.0,
+        "poison_at_rank1": 0.0
+      },
+      "2_mixed": {
+        "trusted_at_rank1": 32.0,
+        "trusted_in_topk": 96.0,
+        "poison_in_topk": 100.0,
+        "poison_at_rank1": 68.0
+      },
+      "3_mixed_plus_scanner": {
+        "trusted_at_rank1": 68.0,
+        "trusted_in_topk": 100.0,
+        "poison_in_topk": 76.0,
+        "poison_at_rank1": 28.0
+      },
+      "attack_types": {
+        "injection": {
+          "pairs": 4,
+          "top3": 100.0,
+          "rank1": 75.0
+        },
+        "outdated": {
+          "pairs": 7,
+          "top3": 57.142857142857146,
+          "rank1": 14.285714285714286
+        },
+        "query_mirror": {
+          "pairs": 6,
+          "top3": 83.33333333333333,
+          "rank1": 83.33333333333333
+        },
+        "authority": {
+          "pairs": 6,
+          "top3": 83.33333333333333,
+          "rank1": 33.333333333333336
+        },
+        "contradiction": {
+          "pairs": 7,
+          "top3": 100.0,
+          "rank1": 71.42857142857143
+        }
+      }
+    }
+  },
+  "scanner": {
+    "blocked": 12,
+    "poisoned": 17,
+    "false_positives": 0,
+    "trusted": 15,
+    "by_type": {
+      "injection": "3/3",
+      "contradiction": "1/4",
+      "query_mirror": "3/4",
+      "authority": "3/3",
+      "outdated": "2/3"
+    }
+  },
+  "progression": {
+    "pilot": 100.0,
+    "ten_case": 40.0,
+    "extended": 100.0
+  }
+}

@@ -162,6 +162,34 @@ h1.title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:60px;l
 .slab{position:absolute;left:12px;top:0;bottom:0;display:flex;align-items:center;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;white-space:nowrap}
 .stag{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12.5px;text-align:right}
 .stag.atk{color:var(--red)}.stag.def{color:var(--teal-d)}
+
+/* ========== EXTENDED RESULTS (slides 6-8) ========== */
+.ds2{display:grid;grid-template-columns:.9fr 1.35fr;gap:20px;width:100%}
+.dsbig{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;color:var(--teal-d)}
+.dsbig.bad{color:var(--red)}
+.dsl{font-family:'JetBrains Mono';font-size:11px;color:var(--ink2);letter-spacing:.06em;margin-top:4px}
+.dsn{display:flex;gap:26px;margin-bottom:12px}
+.tchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tchips span{font-family:'JetBrains Mono';font-size:10.5px;color:var(--teal-d);background:var(--teal-bg);border-radius:12px;padding:4px 9px}
+.atab{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.arow{display:grid;grid-template-columns:150px 34px 1fr;gap:10px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:7px 10px}
+.arow .an2{font-family:'Space Grotesk';font-weight:700;font-size:14px;color:var(--red)}
+.arow .ac{font-family:'JetBrains Mono';font-weight:700;font-size:15px;color:var(--ink);text-align:center}
+.arow .ae{font-family:'JetBrains Mono';font-size:10.5px;color:#7a3a30;line-height:1.35}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.mname{font-family:'JetBrains Mono';font-size:11px;font-weight:600;color:var(--ink)}
+.mrow{display:grid;grid-template-columns:112px 1fr 46px;gap:8px;align-items:center;margin-top:9px}
+.mrow .sbar{height:34px}
+.sfill.amb{background:linear-gradient(90deg,#dd9540,#c8791b)}
+.stag.amb{color:var(--amber)}
+.mlab{font-family:'JetBrains Mono';font-size:10.5px;color:var(--ink2);margin-top:10px}
+.legend3{display:flex;gap:18px;justify-content:center;margin-top:10px;font-family:'JetBrains Mono';font-size:11.5px;color:var(--ink2)}
+.legend3 i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.ab2{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+.trow{display:grid;grid-template-columns:118px 1fr 70px;gap:10px;align-items:center;margin-top:9px}
+.trow .tn{font-family:'Space Grotesk';font-weight:700;font-size:13.5px;color:var(--ink)}
+.trow .sbar{height:30px}
+.trow .stag{font-size:11.5px}
 @media print{
   .sfill,.rfill{width:var(--w)!important;animation:none!important}
 }
@@ -366,7 +394,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 2 TEAM -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>The Team<span class="num">02 / 14</span></div>
+    <div class="kick"><span class="dot"></span>The Team<span class="num">02 / 17</span></div>
     <h2 class="head">Group 06 — Roles &amp; Ownership</h2>
     <div class="stage"><div class="tgrid">
       <div class="tcard rise"><div class="tav">TT</div><div><div class="tn">Taki Tahmid</div><div class="tid">011222172</div><div class="tr"><b>OBJ 3</b> · Metadata/semantic checks, quarantine</div></div></div>
@@ -381,7 +409,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 3 PIPELINE (ANIMATED FLOW) -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Pipeline &amp; Attack Surface<span class="num">03 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Pipeline &amp; Attack Surface<span class="num">03 / 17</span></div>
     <h2 class="head">How RAG Flows — &amp; Where Poison Enters</h2>
     <div class="stage"><div class="pipe">
       <!-- connectors (node edges: 250→310, 520→620, 830→930) -->
@@ -398,7 +426,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="bolt" style="left:625px;top:40px"><div class="bx"><div class="bt">Context Contam.</div><div class="bd">poison passages</div></div><div class="drop"></div><div class="head" style="animation-delay:.6s"></div></div>
       <div class="bolt" style="left:935px;top:40px"><div class="bx"><div class="bt">Boundary Collapse</div><div class="bd">text → instruction</div></div><div class="drop"></div><div class="head" style="animation-delay:1.1s"></div></div>
     </div></div>
-    <div class="cap"><span class="cl">Watch</span> Green sparks = data flowing. Red drops = attackers injecting poison — right where documents enter. The AI can't tell trusted from poisoned.</div>
+    <div class="cap"><span class="cl">Watch</span><span class="ctx">Green sparks = data flowing. Red drops = attackers injecting poison — right where documents enter. The AI can't tell trusted from poisoned.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>flow → attack → contamination</span></div>
   </div>
 </section>
@@ -406,7 +434,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 4 SOTA (reuse static-ish, light anim) -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>State of the Art · 2024–2026<span class="num">04 / 14</span></div>
+    <div class="kick"><span class="dot"></span>State of the Art · 2024–2026<span class="num">04 / 17</span></div>
     <h2 class="head">Attacks Are Cheap · Best Defense Won't Fit</h2>
     <div class="stage"><div class="sotawrap rise">
       <div class="sotarow"><div class="snm">PoisonedRAG <span>2025</span></div><div class="sbar"><div class="sfill atk" style="--w:97%"></div><div class="slab">99% ASR · 5 docs</div></div><div class="stag atk">ATK</div></div>
@@ -415,7 +443,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="sotarow"><div class="snm">CorruptRAG <span>2026</span></div><div class="sbar"><div class="sfill atk" style="--w:80%"></div><div class="slab">1-shot blend</div></div><div class="stag atk">ATK</div></div>
       <div class="sotarow"><div class="snm">PIDP-Attack <span>2026</span></div><div class="sbar"><div class="sfill atk" style="--w:55%"></div><div class="slab">+16% ASR</div></div><div class="stag atk">ATK</div></div>
     </div></div>
-    <div class="cap"><span class="cl">Point</span> Recent work spans poisoning, indirect prompt injection, robust retrieval, trust scoring, and provenance checks. Our gap is narrower: a <b>lightweight pre-index gate</b> for a closed-API RAG pipeline.</div>
+    <div class="cap"><span class="cl">Point</span><span class="ctx">Recent work spans poisoning, indirect prompt injection, robust retrieval, trust scoring, and provenance checks. Our gap is narrower: a <b>lightweight pre-index gate</b> for a closed-API RAG pipeline.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>ASR from papers · bars relative</span></div>
   </div>
 </section>
@@ -423,7 +451,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 5 EXPERIMENT -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Our Experiment · 21 Jul 2026<span class="num">05 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Our Experiment · 21 Jul 2026<span class="num">05 / 17</span></div>
     <h2 class="head">Preliminary Evidence — One Untrusted Doc Broke Top-3</h2>
     <div class="stage"><div class="ev2">
       <div class="evc rise">
@@ -447,15 +475,91 @@ body.fs .slide{border-radius:0;box-shadow:none}
         <div class="evnote">▲ Poison ranked #3 — "MFA not required" + unencrypted setup.zip.</div>
       </div>
     </div></div>
-    <div class="cap"><span class="cl">Pilot result</span> The untrusted document entered Top-3 for both original queries. This is a retrieval-contamination proxy; the expanded ten-case benchmark is reported later.</div>
+    <div class="cap"><span class="cl">Pilot result</span><span class="ctx">The untrusted document entered Top-3 for both original queries. This is a retrieval-contamination proxy; the extended 32-file benchmark follows.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>pilot: 5 trusted + 1 proxy · k=3</span></div>
+  </div>
+</section>
+
+<!-- 6 EXTENDED DATASET -->
+<section class="slide frame corner">
+  <div class="pad">
+    <div class="kick"><span class="dot"></span>Extended Experiment · Sep 2026<span class="num">06 / 17</span></div>
+    <h2 class="head">32 Files, 5 Attack Types — Good vs Poisoned</h2>
+    <div class="stage"><div class="ds2">
+      <div class="evc rise">
+        <div class="dsn"><div><div class="dsbig">15</div><div class="dsl">TRUSTED PDFs</div></div><div><div class="dsbig bad">17</div><div class="dsl">POISONED PDFs</div></div><div><div class="dsbig" style="color:var(--navy)">25</div><div class="dsl">QUESTIONS</div></div></div>
+        <div class="evsub">Trusted = correct company policy for 15 topics</div>
+        <div class="tchips"><span>password</span><span>VPN</span><span>MFA</span><span>leave</span><span>phishing</span><span>Wi-Fi</span><span>data class.</span><span>backup</span><span>software</span><span>incident</span><span>laptop</span><span>USB</span><span>cloud</span><span>expense</span><span>guidelines</span></div>
+        <div class="evnote" style="color:var(--ink2);font-weight:500">Every poisoned file carries a unique wrong value or URL, so we can trace it into the top-3. Models: BGE-M3 + MiniLM · k=3.</div>
+      </div>
+      <div class="evc rise2">
+        <div class="evq">Poisoned files by attack type</div>
+        <div class="atab">
+          <div class="arow"><div class="an2">Outdated</div><div class="ac">3</div><div class="ae">"Passwords: at least 6 characters" (2015 policy)</div></div>
+          <div class="arow"><div class="an2">Contradiction</div><div class="ac">4</div><div class="ae">Official title, one fact changed: "35 days leave"</div></div>
+          <div class="arow"><div class="an2">Authority spoof</div><div class="ac">3</div><div class="ae">"v4.0 SUPERSEDES v3.0 … MFA removed"</div></div>
+          <div class="arow"><div class="an2">Prompt injection</div><div class="ac">3</div><div class="ae">"Ignore all previous instructions … reset at http://…"</div></div>
+          <div class="arow"><div class="an2">Query mirroring</div><div class="ac">4</div><div class="ae">Copies the question text, then gives a wrong answer</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="cap"><span class="cl">Why</span><span class="ctx">One untrusted file could only show that contamination <b>can</b> happen. 17 poisoned files across 5 attack styles show <b>how often</b> — and what each defense really stops.</span></div>
+    <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>scripts/run_extended_experiment.py</span></div>
+  </div>
+</section>
+
+<!-- 7 DEFENSE COMPARISON -->
+<section class="slide frame corner">
+  <div class="pad">
+    <div class="kick"><span class="dot"></span>Extended Result · BGE-M3<span class="num">07 / 17</span></div>
+    <h2 class="head">Poison Reached the Top-3 for Every Question</h2>
+    <div class="stage"><div style="width:100%">
+      <div class="res3">
+        <div class="evc rise"><div class="evq">Correct doc ranked #1</div><div class="evsub">higher is better</div><div class="mrow"><div class="mname">No defense</div><div class="sbar"><div class="sfill atk" style="--w:28%"></div></div><div class="stag atk">28%</div></div><div class="mrow"><div class="mname">Content scanner</div><div class="sbar"><div class="sfill amb" style="--w:68%"></div></div><div class="stag amb">68%</div></div><div class="mrow"><div class="mname">Provenance gate</div><div class="sbar"><div class="sfill def" style="--w:92%"></div></div><div class="stag def">92%</div></div></div>
+        <div class="evc rise2"><div class="evq">Poison in top-3</div><div class="evsub">lower is better</div><div class="mrow"><div class="mname">No defense</div><div class="sbar"><div class="sfill atk" style="--w:100%"></div></div><div class="stag atk">100%</div></div><div class="mrow"><div class="mname">Content scanner</div><div class="sbar"><div class="sfill amb" style="--w:68%"></div></div><div class="stag amb">68%</div></div><div class="mrow"><div class="mname">Provenance gate</div><div class="sbar"><div class="sfill def" style="--w:0.001%"></div></div><div class="stag def">0%</div></div></div>
+        <div class="evc rise3"><div class="evq">Poison ranked #1</div><div class="evsub">lower is better</div><div class="mrow"><div class="mname">No defense</div><div class="sbar"><div class="sfill atk" style="--w:72%"></div></div><div class="stag atk">72%</div></div><div class="mrow"><div class="mname">Content scanner</div><div class="sbar"><div class="sfill amb" style="--w:28%"></div></div><div class="stag amb">28%</div></div><div class="mrow"><div class="mname">Provenance gate</div><div class="sbar"><div class="sfill def" style="--w:0.001%"></div></div><div class="stag def">0%</div></div></div>
+      </div>
+      <div class="legend3"><span><i style="background:#c0392b"></i>No defense (mixed KB)</span><span><i style="background:#c8791b"></i>Content scanner (keywords, URLs)</span><span><i style="background:#0f8a7e"></i>Provenance gate (trusted source)</span></div>
+    </div></div>
+    <div class="cap"><span class="cl">Takeaway</span><span class="ctx">Clean corpus: correct doc #1 in <b>92%</b>. Add poison: <b>28%</b>. The scanner helps but leaves <b>68%</b> contaminated; only the provenance gate reaches <b>0%</b>. MiniLM gave the same picture (100% · 68% #1).</span></div>
+    <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>15 trusted + 17 poisoned · 25 questions · k=3</span></div>
+  </div>
+</section>
+
+<!-- 8 ATTACK TYPES + SCANNER -->
+<section class="slide frame corner">
+  <div class="pad">
+    <div class="kick"><span class="dot"></span>Extended Result · Breakdown<span class="num">08 / 17</span></div>
+    <h2 class="head">Which Attacks Win — and What Keywords Miss</h2>
+    <div class="stage"><div class="ab2">
+      <div class="evc rise">
+        <div class="evq">Attack reached top-3 (no defense)</div>
+        <div class="evsub">bar = top-3 rate · tag = ranked #1 rate</div>
+        <div class="trow"><div class="tn">Injection</div><div class="sbar"><div class="sfill atk" style="--w:100%"></div></div><div class="stag atk">#1 75%</div></div>
+        <div class="trow"><div class="tn">Contradiction</div><div class="sbar"><div class="sfill atk" style="--w:100%"></div></div><div class="stag atk">#1 71%</div></div>
+        <div class="trow"><div class="tn">Outdated</div><div class="sbar"><div class="sfill atk" style="--w:86%"></div></div><div class="stag atk">#1 29%</div></div>
+        <div class="trow"><div class="tn">Query mirror</div><div class="sbar"><div class="sfill atk" style="--w:83%"></div></div><div class="stag atk">#1 83%</div></div>
+        <div class="trow"><div class="tn">Authority</div><div class="sbar"><div class="sfill atk" style="--w:67%"></div></div><div class="stag atk">#1 17%</div></div>
+      </div>
+      <div class="evc rise2">
+        <div class="evq">Content scanner blocked</div>
+        <div class="evsub">12 / 17 poisoned (71%) · 0 / 15 false alarms</div>
+        <div class="trow"><div class="tn">Injection</div><div class="sbar"><div class="sfill def" style="--w:100%"></div></div><div class="stag def">3 / 3</div></div>
+        <div class="trow"><div class="tn">Authority</div><div class="sbar"><div class="sfill def" style="--w:100%"></div></div><div class="stag def">3 / 3</div></div>
+        <div class="trow"><div class="tn">Query mirror</div><div class="sbar"><div class="sfill def" style="--w:75%"></div></div><div class="stag def">3 / 4</div></div>
+        <div class="trow"><div class="tn">Outdated</div><div class="sbar"><div class="sfill def" style="--w:67%"></div></div><div class="stag def">2 / 3</div></div>
+        <div class="trow"><div class="tn">Contradiction</div><div class="sbar"><div class="sfill def" style="--w:25%"></div></div><div class="stag def">1 / 4</div></div>
+      </div>
+    </div></div>
+    <div class="cap"><span class="cl">Key finding</span><span class="ctx">A wrong <b>fact</b> in normal policy language ("35 days leave", "SMS preferred") has no keyword to catch. Keyword filters stop loud attacks; <b>quiet contradictions need provenance or consistency checks.</b></span></div>
+    <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>retrieval-level · no LLM answer check yet</span></div>
   </div>
 </section>
 
 <!-- 6 GAP timeline (ANIMATED travel) -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>The Core Gap<span class="num">06 / 14</span></div>
+    <div class="kick"><span class="dot"></span>The Core Gap<span class="num">09 / 17</span></div>
     <h2 class="head">Defense Arrives Too Late</h2>
     <div class="stage"><div class="tl">
       <div class="axis"></div>
@@ -469,7 +573,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="badge grn"><div class="bh">Defenses act</div><div class="bs">post-retrieval · too late</div></div>
       <div class="gapbox"><div class="gh">✗ NO DEFENSE HERE</div><div class="gs">pre-index window — root failure vector</div></div>
     </div></div>
-    <div class="cap"><span class="cl">Watch the dot</span> Poison enters at the start (red), travels unchecked through the empty gap, and today's defenses only wake up at the end (turns amber) — after damage is done.</div>
+    <div class="cap"><span class="cl">Watch the dot</span><span class="ctx">Poison enters at the start (red), travels unchecked through the empty gap, and today's defenses only wake up at the end (turns amber) — after damage is done.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>gap = the pre-index window</span></div>
   </div>
 </section>
@@ -477,14 +581,14 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 7 CHALLENGES -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Open Research Challenges<span class="num">07 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Open Research Challenges<span class="num">10 / 17</span></div>
     <h2 class="head">Three Problems Nobody Solved Yet</h2>
     <div class="stage"><div class="obj4" style="grid-template-columns:repeat(3,1fr)">
       <div class="ot rise" style="border-top:4px solid #c8791b"><div class="on">PROBLEM 1</div><div class="oh">Obfuscated Instructions</div><div class="od">Hidden prompts via invisible text, Unicode tricks, sentence-initials, indirect wording. Keyword filters miss them.</div><div class="who">→ beyond regex</div></div>
       <div class="ot rise2" style="border-top:4px solid #c8791b"><div class="on">PROBLEM 2</div><div class="oh">Multilingual &amp; Bangla</div><div class="od">Almost all research is English-only. Low-resource languages like Bangla are unguarded attack surface.</div><div class="who">→ we target it</div></div>
       <div class="ot rise3" style="border-top:4px solid #c8791b"><div class="on">PROBLEM 3</div><div class="oh">Verification Latency</div><div class="od">Per-document LLM / cross-encoder checks cost &gt;1.5s each — too slow for real-time QA.</div><div class="who">→ lightweight instead</div></div>
     </div></div>
-    <div class="cap"><span class="cl">Our angle</span> We target <b>adversarial or inconsistent documents entering the index</b>, including obfuscated instructions. The current experiment uses an outdated policy as a <b>retrieval-contamination proxy</b>, not a full PoisonedRAG attack.</div>
+    <div class="cap"><span class="cl">Our angle</span><span class="ctx">We target <b>adversarial or inconsistent documents entering the index</b>, including obfuscated instructions. The current experiment uses an outdated policy as a <b>retrieval-contamination proxy</b>, not a full PoisonedRAG attack.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>obfuscation · language · latency</span></div>
   </div>
 </section>
@@ -492,7 +596,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 8 OBJECTIVES -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Project Objectives<span class="num">08 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Project Objectives<span class="num">11 / 17</span></div>
     <h2 class="head">Four Moves — One Owner Each</h2>
     <div class="stage"><div class="obj4">
       <div class="ot rise"><div class="num">01</div><div class="on">MODEL</div><div class="oh">Threat Benchmarks</div><div class="od">NQ / MS-MARCO + poisoning. Measure L2 drift &amp; Top-K contamination.</div><div class="who">Jakaria Molla</div></div>
@@ -507,7 +611,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 9 ARCHITECTURE (ANIMATED routing) -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Proposed System<span class="num">09 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Proposed System<span class="num">12 / 17</span></div>
     <h2 class="head">The Trust Gate — Route on Risk</h2>
     <div class="stage"><div class="arch">
       <svg class="apath" viewBox="0 0 1140 400" preserveAspectRatio="none">
@@ -523,7 +627,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="doc g" style="offset-path:path('M70,200 H150 H280 H410 H520 L600,200 Q720,200 760,110 H840')">📄</div>
       <div class="doc b" style="offset-path:path('M70,200 H150 H280 H410 H520 L600,200 Q720,200 760,300 H840');animation-delay:2s">📄</div>
     </div></div>
-    <div class="cap"><span class="cl">Watch the docs</span> Each PDF flows through metadata + semantic checks to the risk gate — then routes <b>green</b> (trusted → indexed) or <b>amber</b> (risky → quarantined). Check first, store later.</div>
+    <div class="cap"><span class="cl">Watch the docs</span><span class="ctx">Each PDF flows through metadata + semantic checks to the risk gate — then routes <b>green</b> (trusted → indexed) or <b>amber</b> (risky → quarantined). Check first, store later.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>model-agnostic · pre-index · closed-API safe</span></div>
   </div>
 </section>
@@ -531,7 +635,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 10 RISK SCORE (ANIMATED) -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Composite Risk Scoring<span class="num">10 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Composite Risk Scoring<span class="num">13 / 17</span></div>
     <h2 class="head">How the Gate Decides</h2>
     <div class="stage"><div class="risk">
       <svg class="apath" viewBox="0 0 1140 360" preserveAspectRatio="none">
@@ -552,7 +656,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="rout ok"><div class="rth">✓ Index</div><div class="rdd">into ChromaDB</div></div>
       <div class="rout bad"><div class="rth">⚠ Quarantine</div><div class="rdd">isolate + review</div></div>
     </div></div>
-    <div class="cap"><span class="cl">Watch the meter</span> Four signals feed a weighted sum. The needle swings — below τ goes to Index, above τ goes to Quarantine. Tuned so real updates aren't over-flagged.</div>
+    <div class="cap"><span class="cl">Watch the meter</span><span class="ctx">Four signals feed a weighted sum. The needle swings — below τ goes to Index, above τ goes to Quarantine. Tuned so real updates aren't over-flagged.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>trust before index</span></div>
   </div>
 </section>
@@ -560,7 +664,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 11 ROADMAP -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Project Timeline<span class="num">11 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Project Timeline<span class="num">14 / 17</span></div>
     <h2 class="head">8-Week Roadmap — 4 Phases</h2>
     <div class="stage"><div class="road">
       <div class="rlane done rise"><div class="rwk">✓ DONE<small>14–21 Jul</small></div><div class="rbox"><span class="rph">M0</span><div class="rt2">Literature Review + Preliminary Experiment<small>SOTA survey · poison-doc validation</small></div><span class="rown">All members</span></div></div>
@@ -576,18 +680,18 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 12 FINAL UPDATE CHECKLIST -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Final Update Checklist<span class="num">12 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Final Update Checklist<span class="num">15 / 17</span></div>
     <h2 class="head">Seven Things to Be Ready For</h2>
     <div class="stage"><div class="checkgrid">
       <div class="checkitem rise"><div class="ck">01</div><div><div class="ct">Objectives</div><div class="cd">Model, defend, isolate, and evaluate RAG poisoning.</div></div></div>
       <div class="checkitem rise"><div class="ck">02</div><div><div class="ct">Methodology</div><div class="cd">PyPDF → BGE-M3 embeddings → ChromaDB → Top-K retrieval → Gemini.</div></div></div>
-      <div class="checkitem rise2"><div class="ck">03</div><div><div class="ct">Experimental core</div><div class="cd">Six PDFs, ten categorized questions, BGE-M3, ChromaDB, and k=3 retrieval.</div></div></div>
-      <div class="checkitem rise2"><div class="ck">04</div><div><div class="ct">Results</div><div class="cd">Mixed contamination: 4/10 (40%); defended contamination: 0/10 (0%).</div></div></div>
-      <div class="checkitem rise3"><div class="ck">05</div><div><div class="ct">Limitations</div><div class="cd">Ten synthetic questions; defense result is preliminary and not universal.</div></div></div>
+      <div class="checkitem rise2"><div class="ck">03</div><div><div class="ct">Experimental core</div><div class="cd">Gate suite: 6 PDFs, 10 questions. Extended: 15 trusted + 17 poisoned PDFs, 5 attack types, 25 questions. BGE-M3, k=3.</div></div></div>
+      <div class="checkitem rise2"><div class="ck">04</div><div><div class="ct">Results</div><div class="cd">Gate suite 40% → 0%. Extended: poison in top-3 100% → 68% (scanner) → 0% (provenance).</div></div></div>
+      <div class="checkitem rise3"><div class="ck">05</div><div><div class="ct">Limitations</div><div class="cd">Synthetic corpus written by us; retrieval-level only (no Gemini answer check); scanner misses 3/4 contradictions.</div></div></div>
       <div class="checkitem rise3"><div class="ck">06</div><div><div class="ct">Two-week improvements</div><div class="cd">Add trust scoring, quarantine, multilingual/obfuscation tests, latency and false-positive analysis.</div></div></div>
       <div class="checkitem pending rise3"><div class="ck">07</div><div><div class="ct">Source code</div><div class="cd">github.com/takitahmid20/rag-data-poisoning · local copy: rag-data-poisoning/</div></div></div>
     </div></div>
-    <div class="cap"><span class="cl">Speak honestly</span> The expanded result is preliminary: <b>40% to 0% contamination</b> on ten synthetic questions. It is not a universal attack-prevention claim.</div>
+    <div class="cap"><span class="cl">Speak honestly</span><span class="ctx">Results are preliminary and synthetic: <b>40% → 0%</b> (10 questions) and <b>100% → 0%</b> (25 questions, 17 poisoned files). Not a universal attack-prevention claim.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>objectives · method · evidence · next steps</span></div>
   </div>
 </section>
@@ -595,7 +699,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
 <!-- 13 REFERENCES -->
 <section class="slide frame corner">
   <div class="pad">
-    <div class="kick"><span class="dot"></span>Key References · 2024–2026<span class="num">13 / 14</span></div>
+    <div class="kick"><span class="dot"></span>Key References · 2024–2026<span class="num">16 / 17</span></div>
     <h2 class="head">Attack, Defense &amp; Provenance Literature</h2>
     <div class="stage"><div class="refs">
       <div class="rf rise"><div class="rfn">1</div><div><div class="rft"><b>PoisonedRAG</b> — Zou et al. (2025)</div><div class="rfd">Optimisation-based poisoned passages · 90–99% ASR with 5 docs</div></div><span class="rtag anc">Anchor</span></div>
@@ -607,7 +711,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
       <div class="rf rise3"><div class="rfn">7</div><div><div class="rft"><b>RobustRAG / TrustRAG</b> — robust retrieval and trust-aware defenses</div><div class="rfd">Compare retrieval robustness, trust scoring, and their deployment assumptions</div></div><span class="rtag def">Defense</span></div>
       <div class="rf rise3"><div class="rfn">8</div><div><div class="rft"><b>Provenance &amp; ingestion filtering</b> — defense family</div><div class="rfd">Source authority, metadata, signatures, ACLs, and pre-index validation</div></div><span class="rtag def">Defense</span></div>
     </div></div>
-    <div class="cap"><span class="cl">Reference status</span> Verified references are in the paper repository; slide-only names still require bibliographic confirmation before archival submission.</div>
+    <div class="cap"><span class="cl">Reference status</span><span class="ctx">Verified references are in the paper repository; slide-only names still require bibliographic confirmation before archival submission.</span></div>
     <div class="pfoot"><span class="l">Securing RAG · Group 06</span><span>attacks · injection · defenses · provenance</span></div>
   </div>
 </section>
@@ -622,7 +726,7 @@ body.fs .slide{border-radius:0;box-shadow:none}
   <div class="pad close-wrap">
     <div class="eyebrow rise"><span class="ln"></span>Thank You · Questions Welcome</div>
     <h1 class="thanks rise">Trust before<br>you index.</h1>
-    <div class="ctake rise2">A single unverified document contaminated our Top-3 for <b>both</b> queries. The fix isn't smarter filtering after retrieval — it's a <b>lightweight, model-agnostic trust gate before embedding.</b></div>
+    <div class="ctake rise2">With 17 poisoned files, poison reached our Top-3 for <b>all 25</b> questions; keyword scanning still left 68%. The fix isn't smarter filtering after retrieval — it's a <b>lightweight, model-agnostic trust gate before embedding.</b></div>
     <div class="crepo rise3"><span class="g">Group 06 · UIU · CSE 4531</span><span>github.com/takitahmid20/rag-data-poisoning</span><span>Instructor · Mr. Azizur Rahman Anik</span></div>
   </div>
 </section>

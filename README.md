@@ -97,3 +97,27 @@ python3 scripts/query.py -q "How is VPN access configured?"
 - [`experiment_result.md`](file:///Volumes/TakiTahmid/UIU/CS/data_poisoning/experiment_result.md): Empirical report with Phase 1 vs. Phase 2 retrieval tables and analysis.
 - [`gap_analysis.md`](file:///Volumes/TakiTahmid/UIU/CS/data_poisoning/gap_analysis.md): One-page research gap analysis referencing *PoisonedRAG* (Zou et al. 2024), *CorruptRAG*, and pre-indexing defenses.
 - [`outputs/experiment_log.txt`](file:///Volumes/TakiTahmid/UIU/CS/data_poisoning/outputs/experiment_log.txt): Execution log output.
+
+---
+
+## 🧪 Extended Poisoning Test Suite (32 documents, 5 attack types)
+
+Larger benchmark: **15 trusted PDFs** (correct policies) + **17 poisoned PDFs** (wrong/malicious information) across 5 attack types: outdated policy, fact contradiction, authority spoofing, prompt injection, and query mirroring (PoisonedRAG-style). 25 questions, 3 knowledge bases (trusted only / mixed / mixed + content scanner).
+
+```bash
+python3 scripts/run_extended_experiment.py                                    # BAAI/bge-m3 (default)
+RAG_EMBEDDING_MODEL=all-MiniLM-L6-v2 python3 scripts/run_extended_experiment.py  # comparison model
+python3 scripts/make_charts.py            # -> outputs/figures/
+python3 scripts/generate_final_report.py  # -> final_rag_security_report.pdf
+```
+
+| Configuration (BGE-M3) | Correct doc #1 | Poison in top-3 | Poison #1 |
+|---|---|---|---|
+| No defense | 28% | 100% | 72% |
+| Content scanner | 68% | 68% | 28% |
+| Provenance gate (trusted only) | 92% | 0% | 0% |
+
+- Corpus definition: `scripts/extended_dataset.py`; generated PDFs in `data/extended/`
+- Results: `outputs/extended_results_<model>.md` / `.csv`, `outputs/extended_log_<model>.txt`, charts in `outputs/figures/`
+- Retrieval-level only; set `GEMINI_API_KEY` in `.env` to also check whether answers repeat the poisoned content.
+- Paper PDF: `rag_security_paper.pdf` (source: https://github.com/takitahmid20/rag-data-poisoning-paper)

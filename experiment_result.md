@@ -104,3 +104,36 @@ informative. The result demonstrates gate behavior on the current
 synthetic corpus; it is not a claim of universal attack prevention. A larger
 benchmark with adversarially crafted passages, multilingual inputs, false
 positives, and repeated trials is still required.
+
+
+---
+
+## Extended Multi-Attack Evaluation (15 trusted + 17 poisoned PDFs, 25 questions)
+
+Script: `scripts/run_extended_experiment.py` (dataset in `scripts/extended_dataset.py`, charts from `scripts/make_charts.py`). Run with BAAI/bge-m3 (default) and all-MiniLM-L6-v2, top-k = 3. Retrieval-level only (no Gemini key).
+
+| Configuration | Correct doc #1 | Poison in top-3 | Poison #1 |
+|---|---|---|---|
+| No defense (mixed KB) | 28% / 32% | 100% / 100% | 72% / 68% |
+| Content scanner | 68% / 68% | 68% / 76% | 28% / 28% |
+| Provenance gate (trusted only) | 92% / 92% | 0% / 0% | 0% / 0% |
+
+*Values: BGE-M3 / MiniLM-L6-v2.*
+
+![Defense comparison](outputs/figures/fig1_defense_comparison.png)
+
+| Attack type (BGE-M3) | Targeted pairs | Reached top-3 | Ranked #1 |
+|---|---|---|---|
+| Prompt injection | 4 | 100% | 75% |
+| Contradiction | 7 | 100% | 71% |
+| Outdated policy | 7 | 86% | 29% |
+| Query mirroring | 6 | 83% | 83% |
+| Authority spoofing | 6 | 67% | 17% |
+
+![Attack types](outputs/figures/fig2_attack_types.png)
+
+The content scanner blocked 12 of 17 poisoned docs (71% recall) with 0 of 15 false alarms. It missed 3 of 4 contradictions, because a wrong fact written in normal policy language has no keyword to match.
+
+![Scanner](outputs/figures/fig3_scanner_detection.png)
+![Model comparison](outputs/figures/fig4_model_comparison.png)
+![Benchmark progression](outputs/figures/fig5_benchmark_progression.png)
