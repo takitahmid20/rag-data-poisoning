@@ -16,6 +16,9 @@ Through empirical evaluation, this project demonstrates that vector search engin
 
 - `RAG-Security-ANIMATED.html` — updated presentation covering objectives, methodology, experimental evidence, limitations, planned improvements, and source code.
 - `RAG-Security-Deck.pdf` — exported presentation deck.
+- `final_rag_security_report.pdf` — comprehensive report with architecture,
+  literature, all ten test cases, exact ranks, values, limitations, and
+  reproduction steps.
 
 ## Threat Model Boundary
 
